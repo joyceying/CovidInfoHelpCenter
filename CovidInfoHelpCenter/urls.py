@@ -26,4 +26,5 @@ urlpatterns = [
     path('index/', index.index),
     path('selftest/', index.selftest),
     path('uploadreport/', index.uploadreport),
+    path('userprofile/', index.userprofile),
 ]

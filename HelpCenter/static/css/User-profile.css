@@ -1,0 +1,125 @@
+ .u-section-1 {
+  background-image: url("/static/images/839ca099-1e2b-1220-d705-f157a9c6f43b.jpg");
+  background-position: 50% 50%;
+
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 1082px;
+}
+
+.u-section-1 .u-text-1 {
+  text-transform: uppercase;
+  font-family: Allerta;
+  font-size: 3.75rem;
+  width: 525px;
+  margin: 42px auto 0;
+}
+
+.u-section-1 .u-image-1 {
+  height: 577px;
+  width: 1140px;
+  margin: 397px auto 0;
+}
+
+.u-section-1 .u-form-1 {
+  height: 510px;
+  margin: -964px 57px 60px 90px;
+}
+
+.u-section-1 .u-form-group-3 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-form-group-4 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-form-group-5 {
+  margin-left: 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 791px;
+  }
+
+  .u-section-1 .u-image-1 {
+    height: 551px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: -863px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 680px;
+  }
+
+  .u-section-1 .u-image-1 {
+    height: 431px;
+    margin-top: 373px;
+    width: auto;
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: -752px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 589px;
+  }
+
+  .u-section-1 .u-text-1 {
+    width: auto;
+    margin-right: 15px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-image-1 {
+    height: 320px;
+    margin-top: 647px;
+    width: auto;
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: -661px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 488px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 2.25rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .u-section-1 .u-image-1 {
+    height: 250px;
+    margin-top: 752px;
+    width: auto;
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: -560px;
+  }
+}

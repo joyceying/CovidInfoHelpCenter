@@ -14,3 +14,6 @@ def selftest(request):
 def uploadreport(request):
     return render(request, "Upload-Report.html")
 
+def userprofile(request):
+    return render(request, "User-profile.html")
+
