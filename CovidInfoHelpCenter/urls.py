@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 from HelpCenter.views import account
 
 from HelpCenter.views import index
@@ -27,4 +30,4 @@ urlpatterns = [
     path('selftest/', index.selftest),
     path('uploadreport/', index.uploadreport),
     path('userprofile/', index.userprofile),
-]
+] + static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT)

@@ -77,44 +77,58 @@
     <section class="u-align-center u-clearfix u-section-2" id="sec-d00a">
       <div class="u-align-left u-clearfix u-sheet u-sheet-1">
         <h5 class="u-text u-text-default u-text-1">Upload Your RTK or PCR Report</h5>
-        <form action="#" method="POST" class="u-clearfix u-form-spacing-28 u-form-vertical u-inner-form" style="padding: 8px;" name="form">
-		<div id = "display_image" ></div>
-		<input type="file" id="image_input" accept="image/png, image/jpg" style="margin-left:-375px;" required>
-		<div class="u-form u-form-1">
+
+        <form method="POST" class="u-clearfix u-form-spacing-28  u-inner-form" style="padding: 8px;" name="form" enctype="multipart/form-data" >
+            {% csrf_token %}
+
+            <div id = "display_image" ></div>
+
+		<input type="file" name="image" id="image_input" style="margin-left:15px;" accept="image/png, image/jpg" style="margin-left:-375px;"  required>
+
+		<div class="u-form u-form-1" style="margin-top:-360px;">
           
-            <div class="u-form-group u-form-name u-label-none">
+            <div class="u-form-group u-form-name u-label-none" style="margin-bottom:20px;">
               <label for="name-6797" class="u-label">Name</label>
-              <input type="text" placeholder="Name" id="name-6797" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+              <input type="text" placeholder="Name" id="name" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
             </div>
-            <div class="u-form-date u-form-group u-label-none">
+            <div class="u-form-date u-form-group u-label-none" style="margin-bottom:20px;">
               <label for="date-6268" class="u-label u-label-2">Date</label>
-              <input type="date" placeholder="MM/DD/YYYY" id="date-6268" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+              <input type="date" placeholder="MM/DD/YYYY" id="date" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
             </div>
-            <div class="u-form-group u-form-select u-label-none">
+            <div class="u-form-group u-form-select u-label-none" style="margin-bottom:20px;">
               <label for="select-4bad" class="u-label">Close Contact</label>
               <div class="u-form-select-wrapper">
-                <select id="select-4bad" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="required">
-                  <option value="Close Contact">Close Contact</option>
+                <select id="select-4bad" name="closeContact" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="required">
+                  <option value="closeContact">Close Contact</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
               </div>
             </div>
-            <div class="u-form-group u-form-textarea u-label-none">
-              <label for="textarea-7d0f" class="u-label">Textarea</label>
-              <textarea rows="4" cols="50" id="textarea-7d0f" name="textarea" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="" placeholder="Write down your covid symptoms"></textarea>
+            <div class="u-form-group u-form-textarea u-label-none" style="margin-bottom:20px;">
+              <label for="textarea-7d0f" class="u-label">Symptoms</label>
+              <textarea rows="4" cols="50" id="symptoms" name="symptoms" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="" placeholder="Write down your covid symptoms"></textarea>
             </div>
+
             <div class="u-align-left u-form-group u-form-submit">
-              <a href="#" class="u-btn u-btn-submit u-button-style">Submit</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+
+              <input type="submit" value="submit" />
+                {% if messages %}
+                {% for message in messages %}
+                    <h3 style="color:green;">{{message}}</h3>
+                {% endfor %}
+                {% endif %}
             </div>
-            <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+
+<!--<div class="u-form-send-message u-form-send-success">'Thank you! Your message has been sent.</div>
             <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
             <input type="hidden" value="" name="recaptchaResponse">
-          </div>
+          </div>-->
+        </div>
 		  </form>
-        
+
+
       </div>
     </section>
     
