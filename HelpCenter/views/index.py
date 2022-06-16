@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from HelpCenter.models import reportDetail
 from django.contrib import messages
+from django.core.mail import send_mail
 # Create your views here.
 
 
 def home(request):
+
     return render(request, "index.html")
 
 def index(request):
