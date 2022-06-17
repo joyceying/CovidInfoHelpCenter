@@ -40,14 +40,16 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"  style="padding: 10px 20px;">Service</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Self-test.html">Self Report</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"  style="padding: 10px 20px;">Service</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="/selftest">Self Report</a>
 </li></ul>
 </div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">Sign In</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white">Logout</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;" aria-haspopup="true"
+                                              aria-expanded="false"
+                                              style="color: inherit">{{ request.session.info.name }} <span
+                            class="caret"></span></a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="/userprofile">Profile</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="/logout" style="color:orangered">Logout</a>
 </li></ul>
 </div>
-</li></ul>
-          </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
@@ -216,26 +218,30 @@
                 <div class="u-container-layout u-valign-bottom u-container-layout-2">
                   <h2 class="u-text u-text-default u-text-1">Contact Us</h2>
                   <div class="u-expanded-width u-form u-form-1">
-                    <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
-                      <div class="u-form-group u-form-name u-label-none">
+                    <form action="" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" style="padding: 10px" source="email" name="form">
+                      {% csrf_token %}
+                        <div class="u-form-group u-form-name u-label-none" style="margin-bottom:20px;">
                         <label for="name-3b9a" class="u-label">Name</label>
                         <input type="text" placeholder="Enter your Name" id="name-3b9a" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
                       </div>
-                      <div class="u-form-email u-form-group u-label-none">
+                      <div class="u-form-email u-form-group u-label-none" style="margin-bottom:20px;">
                         <label for="email-3b9a" class="u-label">Email</label>
-                        <input type="email" placeholder="Enter a valid email address" id="email-3b9a" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                        <input type="email" placeholder="Enter a valid email address" id="email" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
                       </div>
-                      <div class="u-form-group u-form-message u-label-none">
+                      <div class="u-form-group u-form-message u-label-none" style="margin-bottom:20px;">
                         <label for="message-3b9a" class="u-label">Message</label>
                         <textarea placeholder="Enter your message" rows="4" cols="50" id="message-3b9a" name="message" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-btn u-btn-submit u-button-style">Submit</a>
-                        <input type="submit" value="submit" class="u-form-control-hidden">
+                        <input type="submit" value="Submit" class="btn submit-btn" style="background-color:#478ac9;color:white;border:none;cursor:pointer;width:100px;height:40px">
                       </div>
-                      <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-                      <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-                      <input type="hidden" value="" name="recaptchaResponse">
+                        {% if name %}
+                            <center>
+                                <h5>Thanks {{name}}!</h5>
+                                <p>We received your email and will respond shortly..</p>
+                            </center>
+
+                        {% endif %}
                     </form>
                   </div>
                 </div>

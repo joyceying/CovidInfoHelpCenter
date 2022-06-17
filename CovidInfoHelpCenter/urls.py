@@ -28,6 +28,12 @@ urlpatterns = [
     path('home/', index.home),
     path('index/', index.index),
     path('selftest/', index.selftest),
+    path('image/code/', account.image_code),
     path('uploadreport/', index.uploadreport),
     path('userprofile/', index.userprofile),
-] + static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT)
+    path('registe/', account.registe),
+    path('logout/', account.logout),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

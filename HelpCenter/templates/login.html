@@ -27,20 +27,21 @@
 <body>
 <div class="account">
     <h2>Login</h2>
+
     <form method="post" novalidate>
         {% csrf_token %}
         <div class="form-group">
-            <label>username:</label>
-            {{ form.username }}
-            <span style="color: red;">{{ form.username.errors.0 }}</span>
+            <label>username </label>
+            {{ form.name }}
+            <span style="color: red;">{{ form.name.errors.0 }}</span>
         </div>
         <div class="form-group">
-            <label>password:</label>
+            <label>password </label>
             {{ form.password }}
             <span style="color: red;">{{ form.password.errors.0 }}</span>
         </div>
         <div class="form-group">
-            <label for="id_code">code</label>
+            <label for="id_code">code </label>
             <div class="row">
                 <div class="col-xs-7">
                     {{ form.code }}
@@ -52,6 +53,7 @@
             </div>
         </div>
         <input type="submit" value="login" class="btn btn-primary">
+        <a href="/registe/" class="btn btn-primary">registe</a>
     </form>
 </div>
 

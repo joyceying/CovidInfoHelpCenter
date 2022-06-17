@@ -9,3 +9,4 @@ const image_input = document.querySelector("#image_input");
 	});
 	reader.readAsDataURL(this.files[0]);
 })
+

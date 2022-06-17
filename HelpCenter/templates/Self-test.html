@@ -49,20 +49,26 @@
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"  style="padding: 10px 20px;">Service</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="/selftest">Self Report</a>
 </li></ul>
 </div>
-            </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">Sign In</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="/userprofile">User Profile</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white">Logout</a>
+            </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;" aria-haspopup="true"
+                                              aria-expanded="false"
+                                              style="color: inherit">{{ request.session.info.name }} <span
+                            class="caret"></span></a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="/userprofile">User-profile</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="/logout" style="color:orangered">Logout</a>
 </li></ul>
 </div>
-</li></ul>
-          </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" >Service</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Self-test.html">Self Report</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" >Service</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/selftest/">Self Report</a>
 </li></ul>
 </div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Sign In</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link">Logout</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" aria-haspopup="true"
+                                              aria-expanded="false"
+                                              style="color: inherit">{{ request.session.info.name }} <span
+                            class="caret"></span></a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="/userprofile">User Profile</a></li>
+                <div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a href="/logout" style="color:orangered" >logout</a></li>
 </li></ul>
 </div>
 </li></ul>
@@ -96,44 +102,23 @@
         <thead>  
           <tr style="height: 21px;">
                 <th>Date</th>
-                <th>S​ymptoms</th>
+                <th>Symptoms</th>
                 <th>Close Contact</th>
                 <th>Images</th>
               </tr>
         </thead>  
-        <tbody>  
+        <tbody>
+            {% for r in report %}
           <tr style="height: 75px;">
-                <td>10/2/2022</td>
-                <td>no </td>
-                <td>no</td>
-                <td>
-
-				</td>
+                <td>{{ r.date }}</td>
+                <td>{{ r.symptoms }} </td>
+                <td>{{ r.closeContact }}</td>
+                {% if r.image %}
+                     <td><img src="{{ r.image.url }}" style="height: 80px; width:80px"></td>
+                {% endif %}
               </tr>
-          <tr style="height: 76px;">
-                <td>14/04/2022</td>
-                <td>fewer,cough</td>
-                <td>no</td>
-                <td>
 
-                </td>
-              </tr>
-              <tr style="height: 76px;">
-                <td>Row 3</td>
-                <td>Description</td>
-                <td>Description</td>
-                <td>
-
-                </td>
-              </tr>
-              <tr style="height: 76px;">
-                <td>Row 4</td>
-                <td>Description</td>
-                <td>Description</td>
-                <td>
-
-                </td>
-              </tr>
+            {% endfor %}
         </tbody>  
       </table>  
 	 

@@ -5,8 +5,14 @@ from django.db import models
 
 class User(models.Model):
     """ 普通用户表 """
-    name = models.CharField(verbose_name="username", max_length=16)
+    name = models.CharField(verbose_name="name", max_length=16)
+    Email = models.EmailField(verbose_name="email", max_length=20)
     password = models.CharField(verbose_name="password", max_length=64)
+    DOB = models.CharField(verbose_name="DOB", max_length=20)
+    age = models.IntegerField(verbose_name="age")
+
+    def __str__(self):
+        return self.name
 
 
 class reportDetail(models.Model):

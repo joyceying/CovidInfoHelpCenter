@@ -15,7 +15,6 @@
     <link id="u-page-google-font" rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i">
 
-
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -209,7 +208,7 @@
                 <div class="u-container-layout u-valign-bottom u-container-layout-2">
                   <h2 class="u-text u-text-default u-text-1">Contact Us</h2>
                   <div class="u-expanded-width u-form u-form-1">
-                    <form action="https://formsubmit.co/ccry1488@gmail.com" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" style="padding: 10px" source="email" name="form">
+                    <form action="" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" style="padding: 10px" source="email" name="form">
                       {% csrf_token %}
                         <div class="u-form-group u-form-name u-label-none" style="margin-bottom:20px;">
                         <label for="name-3b9a" class="u-label">Name</label>
@@ -217,7 +216,7 @@
                       </div>
                       <div class="u-form-email u-form-group u-label-none" style="margin-bottom:20px;">
                         <label for="email-3b9a" class="u-label">Email</label>
-                        <input type="email" placeholder="Enter a valid email address" id="email-3b9a" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                        <input type="email" placeholder="Enter a valid email address" id="email" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
                       </div>
                       <div class="u-form-group u-form-message u-label-none" style="margin-bottom:20px;">
                         <label for="message-3b9a" class="u-label">Message</label>
@@ -226,7 +225,13 @@
                       <div class="u-align-left u-form-group u-form-submit">
                         <input type="submit" value="Submit" class="btn submit-btn" style="background-color:#478ac9;color:white;border:none;cursor:pointer;width:100px;height:40px">
                       </div>
+                        {% if name %}
+                            <center>
+                                <h5>Thanks {{name}}!</h5>
+                                <p>We received your email and will respond shortly..</p>
+                            </center>
 
+                        {% endif %}
                     </form>
                   </div>
                 </div>
@@ -241,5 +246,10 @@
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-42cb"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">@2022 Covid Info &amp; Health Center. All Rights Reserved.</p>
       </div></footer>
+
+
+  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
   </body>
+
 </html>
